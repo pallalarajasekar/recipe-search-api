@@ -1,0 +1,10 @@
+.centered {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .vl {
+    border-left: 2px solid rgb(224, 224, 224);
+    height: 500px;
+  }

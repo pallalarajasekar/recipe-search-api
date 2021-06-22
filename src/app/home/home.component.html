@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <form [formGroup]="formGroup" (ngSubmit)="searchRecipe()">
+            <div class="row">
+                <div class="form-group col-lg-2 col-md-4 col-sm-6">
+                    <label>Recipe diet</label>
+                    <select formControlName="diet" [ngClass]="{'form-error' : formGroup.get('diet').touched && formGroup.get('diet').invalid}">
+                        <option [value]="diet" *ngFor="let diet of dietValue">{{diet}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-4 col-sm-6">
+                    <label>Recipe cuisineType</label>
+                    <select formControlName="cuisineType" [ngClass]="{'form-error' : formGroup.get('cuisineType').touched && formGroup.get('cuisineType').invalid}">
+                        <option [value]="cuisine" *ngFor="let cuisine of cuisineValue">{{cuisine}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-4 col-sm-6">
+                    <label>Recipe mealType</label>
+                    <select formControlName="mealType" [ngClass]="{'form-error' : formGroup.get('mealType').touched && formGroup.get('mealType').invalid}">
+                        <option [value]="meal" *ngFor="let meal of mealValue">{{meal}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-4 col-sm-6">
+                    <label>Recipe dishType</label>
+                    <select formControlName="dishType" [ngClass]="{'form-error' : formGroup.get('dishType').touched && formGroup.get('dishType').invalid}">
+                        <option [value]="dish" *ngFor="let dish of dishValue">{{dish}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-4 col-sm-6">
+                    <label>Recipe health</label>
+                    <select formControlName="health" [ngClass]="{'form-error' : formGroup.get('health').touched && formGroup.get('health').invalid}">
+                        <option [value]="health" *ngFor="let health of healthValue">{{health}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-4 col-sm-6" style="margin-top: 15px;">
+                    <button [disabled]="!formGroup.valid" class="btn btn-primary btn-user btn-block">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="row" *ngIf= "recipeCount != 0">
+        <div class="col-lg-6 col-md-6 col-sm-12" *ngFor="let data of receipeData">
+            <div class="card">
+                <div class="card-horizontal row">
+                    <div class="img-square-wrapper col-lg-5 col-md-5 col-sm-12">
+                        <img class="" [src]="data.recipe.image" alt="Card image cap" style="width: 100%;">
+                    </div>
+                    <div class="card-body col-lg-7 col-md-7 col-sm-12">
+                        <h4>ingredientLines</h4>
+                        <ul class="fa-ul" *ngFor="let x of data.recipe.ingredientLines">
+                            <li><span><i class="fa fa-check"></i></span><span style="margin-left: 5px;">{{x}}</span>
+                            </li>
+                        </ul>
+                        <div class="continue">
+                            <button type="button" class="btn btn-info continue"
+                                (click)="viewBlock(data.recipe.uri)">View
+                                More</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12" *ngIf= "recipeCount == 0">
+            <h4>No Recipe Details</h4>
+        </div>
+    </div>
+</div>

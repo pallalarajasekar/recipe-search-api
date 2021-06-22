@@ -1,0 +1,12 @@
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+.continue{
+    margin-top: 10px;
+    text-align: center;
+    
+}
+.form-error{
+    border: 1px solid red;
+}
