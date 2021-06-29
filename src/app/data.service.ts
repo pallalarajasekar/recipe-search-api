@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  authtoken = window.localStorage.getItem("authtoken");
+  authtoken = "5bc07d492835c1a514d392283f9054da";
   
   constructor(private http:HttpClient) { }
 
