@@ -16,8 +16,10 @@ export class GuardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
       if(window.localStorage.getItem("authtoken")){
+        console.log(window.localStorage.getItem("authtoken"));
         return true;
       }else{
+        console.log(window.localStorage.getItem("authtoken"));
         this.router.navigate(["/login"])
         return false;
       }

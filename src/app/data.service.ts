@@ -7,9 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   authtoken = window.localStorage.getItem("authtoken");
+  
   constructor(private http:HttpClient) { }
 
   getRecipe(){
+    console.log(this.authtoken);
     return this.http.get('https://api.edamam.com/api/recipes/v2?' + 'app_key=' + this.authtoken + '&type=public&app_id=f5ab289a&diet=balanced') 
   }
 
