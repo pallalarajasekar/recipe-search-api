@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_recipe_search_api_1695624780367-push-trigger-input-set
+  identifier: Build_recipe_search_api_1695624780367pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_recipe_search_api_1695624780367
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
